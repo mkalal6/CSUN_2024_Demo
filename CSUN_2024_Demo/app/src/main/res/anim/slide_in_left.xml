@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <translate
+        android:duration="600"
+        android:fromXDelta="100%"
+        android:toXDelta="0%" >
+    </translate>
+</set>
+
+<!--Taken from: https://stackoverflow.com/questions/5151591/android-left-to-right-slide-animation-->

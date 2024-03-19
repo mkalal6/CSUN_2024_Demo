@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".participant">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.70" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <EditText
+        android:id="@+id/participant_number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver_guide_left"
+        app:layout_constraintRight_toRightOf="@id/ver_guide_right"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_middle"
+        app:layout_constraintBottom_toBottomOf="@id/hor_guide_bottom"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/participant_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver_guide_left"
+        app:layout_constraintRight_toRightOf="@id/ver_guide_right"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_top"
+        app:layout_constraintBottom_toBottomOf="@id/hor_guide_middle"
+        android:text="Enter Participant Number"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:id="@+id/participant_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver_guide_left"
+        app:layout_constraintRight_toRightOf="@id/ver_guide_right"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_bottom"
+        android:text="Begin!"
+        android:textAlignment="center"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

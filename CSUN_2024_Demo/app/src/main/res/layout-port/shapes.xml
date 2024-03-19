@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".shapes">
+
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!! BACKGROUND IMAGE !!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+    <ImageView
+        android:id="@+id/bg_img"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="Text"
+        android:translationZ="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shapes_ver" />
+
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!! GUIDELINES !!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_top1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.196" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_top2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.397" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_bottom1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.658" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_bottom2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.86" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_extra_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.42" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor_guide_extra_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_left1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.085" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_left2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_right1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.58" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver_guide_right2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!! TEXT VIEWS !!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Jenna 1-1 Meeting: Different Vibration Patterns"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <TextView
+        android:id="@+id/square"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1 Hz"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:translationZ="1dp"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_top2"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_left1"
+        app:layout_constraintEnd_toStartOf="@id/ver_guide_left2" />
+
+    <TextView
+        android:id="@+id/circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5 Hz"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:translationZ="1dp"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_top2"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_right1"
+        app:layout_constraintEnd_toStartOf="@id/ver_guide_right2" />
+
+    <TextView
+        android:id="@+id/triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12.5 Hz"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:translationZ="1dp"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_bottom2"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_left1"
+        app:layout_constraintEnd_toStartOf="@id/ver_guide_left2" />
+
+
+    <TextView
+        android:id="@+id/hexagon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="25 Hz"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:translationZ="1dp"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_bottom2"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_right1"
+        app:layout_constraintEnd_toStartOf="@id/ver_guide_right2" />
+
+    <ImageView
+        android:id="@+id/mt_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/output_view"
+        app:layout_constraintEnd_toEndOf="@+id/output_view"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="@+id/output_view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/gestureResultTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAlignment="center"
+        android:text="Try out single and multi-finger gestures! :)"
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintTop_toTopOf="@id/hor_guide_extra_bottom"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_left1"
+        app:layout_constraintEnd_toEndOf="@id/ver_guide_right2"/>
+
+    <TextView
+        android:id="@+id/gestureResultTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAlignment="center"
+        android:text=""
+        android:textColor="@android:color/holo_orange_dark"
+        app:layout_constraintTop_toBottomOf="@id/gestureResultTitle"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_left1"
+        app:layout_constraintEnd_toEndOf="@id/ver_guide_right2"/>
+
+    <TextView
+        android:id="@+id/coordinate_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/holo_purple"
+        android:translationZ="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Title" />
+
+    <TextView
+        android:id="@+id/output_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAlignment="center"
+        android:text="Touch one of the figures to receive a TTS and vibration output: "
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@id/hor_guide_extra_top"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_left1"
+        app:layout_constraintEnd_toEndOf="@id/ver_guide_right2"/>
+
+    <TextView
+        android:id="@+id/output_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintTop_toBottomOf="@id/output_title"
+        app:layout_constraintStart_toStartOf="@id/ver_guide_left1"
+        app:layout_constraintEnd_toEndOf="@id/ver_guide_right2"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

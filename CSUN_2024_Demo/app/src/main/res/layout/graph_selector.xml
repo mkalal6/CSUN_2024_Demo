@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GraphSelector">
+
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!! GUIDELINES !!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.70" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/hor9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.20" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.30" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.40" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.60" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.70" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ver9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!! BUTTONS AND TEXTVIEWS !!!!!!!!!!!!! -->
+    <!--    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+    <TextView
+        android:id="@+id/textbox_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver2"
+        app:layout_constraintRight_toRightOf="@id/ver8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/hor1"
+        android:text="GRAPH SELECTOR"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/textbox_training"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver2"
+        app:layout_constraintRight_toRightOf="@id/ver8"
+        app:layout_constraintTop_toTopOf="@id/hor1"
+        app:layout_constraintBottom_toBottomOf="@id/hor2"
+        android:text=""
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/textbox_testing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver2"
+        app:layout_constraintRight_toRightOf="@id/ver8"
+        app:layout_constraintTop_toTopOf="@id/hor3"
+        app:layout_constraintBottom_toBottomOf="@id/hor4"
+        android:text=""
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/textbox_normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver1"
+        app:layout_constraintRight_toRightOf="@id/ver5"
+        app:layout_constraintTop_toTopOf="@id/hor4"
+        app:layout_constraintBottom_toBottomOf="@id/hor5"
+        android:text=""
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/textbox_spatial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver5"
+        app:layout_constraintRight_toRightOf="@id/ver9"
+        app:layout_constraintTop_toTopOf="@id/hor4"
+        app:layout_constraintBottom_toBottomOf="@id/hor5"
+        android:text=""
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:id="@+id/allergy_graph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver1"
+        app:layout_constraintRight_toRightOf="@id/ver3"
+        app:layout_constraintTop_toTopOf="@id/hor6"
+        app:layout_constraintBottom_toBottomOf="@id/hor7"
+        android:text="Allergies"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/scatter_100_normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver1"
+        app:layout_constraintRight_toRightOf="@id/ver3"
+        app:layout_constraintTop_toTopOf="@id/hor2"
+        app:layout_constraintBottom_toBottomOf="@id/hor3"
+        android:text="scatter_100_normal"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/scatter_100_spatial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver3"
+        app:layout_constraintRight_toRightOf="@id/ver5"
+        app:layout_constraintTop_toTopOf="@id/hor2"
+        app:layout_constraintBottom_toBottomOf="@id/hor3"
+        android:text="scatter_100_spatial"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/flooded_days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver5"
+        app:layout_constraintRight_toRightOf="@id/ver7"
+        app:layout_constraintTop_toTopOf="@id/hor2"
+        app:layout_constraintBottom_toBottomOf="@id/hor3"
+        android:text="Flooded_Days"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/snowy_days"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver7"
+        app:layout_constraintRight_toRightOf="@id/ver9"
+        app:layout_constraintTop_toTopOf="@id/hor2"
+        app:layout_constraintBottom_toBottomOf="@id/hor3"
+
+        android:text="Snowy_Days"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/art_scores"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver5"
+        app:layout_constraintRight_toRightOf="@id/ver7"
+        app:layout_constraintTop_toTopOf="@id/hor6"
+        app:layout_constraintBottom_toBottomOf="@id/hor7"
+        android:text="Art_Scores"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/histo_15_normal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver1"
+        app:layout_constraintRight_toRightOf="@id/ver3"
+        app:layout_constraintTop_toTopOf="@id/hor5"
+        app:layout_constraintBottom_toBottomOf="@id/hor6"
+        android:text="histo_15_normal"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:id="@+id/subject_scores"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver7"
+        app:layout_constraintRight_toRightOf="@id/ver9"
+        app:layout_constraintTop_toTopOf="@id/hor6"
+        app:layout_constraintBottom_toBottomOf="@id/hor7"
+        android:text="Subject_Scores"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/fruit_preference"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver7"
+        app:layout_constraintRight_toRightOf="@id/ver9"
+        app:layout_constraintTop_toTopOf="@id/hor5"
+        app:layout_constraintBottom_toBottomOf="@id/hor6"
+        android:text="Fruit_Preference"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/histo_15_spatial"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver3"
+        app:layout_constraintRight_toRightOf="@id/ver5"
+        app:layout_constraintTop_toTopOf="@id/hor5"
+        app:layout_constraintBottom_toBottomOf="@id/hor6"
+        android:text="histo_15_spatial"
+        android:textAlignment="center"
+        />
+    <Button
+        android:id="@+id/fruit_types"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver3"
+        app:layout_constraintRight_toRightOf="@id/ver5"
+        app:layout_constraintTop_toTopOf="@id/hor6"
+        app:layout_constraintBottom_toBottomOf="@id/hor7"
+
+        android:text="Fruit_Types"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:id="@+id/popcorn_flavors"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver5"
+        app:layout_constraintRight_toRightOf="@id/ver7"
+        app:layout_constraintTop_toTopOf="@id/hor5"
+        app:layout_constraintBottom_toBottomOf="@id/hor6"
+        android:text="Popcorn_Flavors"
+        android:textAlignment="center"
+        />
+
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/ver4"
+        app:layout_constraintRight_toRightOf="@id/ver6"
+        app:layout_constraintTop_toTopOf="@id/hor9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Back"
+        android:textAlignment="center"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

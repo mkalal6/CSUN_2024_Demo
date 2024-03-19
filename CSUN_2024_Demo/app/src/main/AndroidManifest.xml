@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESSIBILITY_SERVICE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="CSUN_2024_Demo"
+        android:lockTaskMode="if_whitelisted"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.FullScreen"
+        tools:targetApi="31">
+        <activity
+            android:name=".allergy_graph"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".scatter_100_normal"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".scatter_100_spatial"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".flooded_days"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".snowy_days"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".histo_15_normal"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".fruit_preference"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".fruit_types"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".art_scores"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".subject_scores"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".histo_15_spatial"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".popcorn_flavors"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".stacked_bar_1"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".scatter_1"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".GraphSelector"
+            android:exported="true" />
+        <activity
+            android:name=".shapes"
+            android:noHistory="true"
+            android:exported="true" />
+        <activity
+            android:name=".screen_1"
+            android:noHistory="true"
+            android:exported="false" />
+        <activity
+            android:name=".participant"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
