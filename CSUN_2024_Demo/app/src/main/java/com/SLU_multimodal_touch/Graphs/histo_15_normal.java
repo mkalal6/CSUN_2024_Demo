@@ -96,6 +96,7 @@ public class histo_15_normal extends AppCompatActivity {
     private Boolean healing_sound_is_playing = false;
     private Boolean spatial_audio_activated = false;
     float pitch_threshold = (float) 0.01;
+    private Boolean tts_spoke = false;
 
 
     // For Logging Info
@@ -316,6 +317,14 @@ public class histo_15_normal extends AppCompatActivity {
             @Override
             public boolean onDoubleTap(int fingers) {
                 // Write your code here for DOUBLE TAPPING
+                if (!tts_spoke) {
+                    tts.speak("This is a histogram with 15 bins. No numerical values are provided. Try to identify the shape of the graph by freely exploring it with one of your fingers.", TextToSpeech.QUEUE_FLUSH, null);
+                    tts_spoke = true;
+                }
+                else {
+                    tts.stop();
+                    tts_spoke = false;
+                }
                 return false;
             }
 
@@ -355,7 +364,7 @@ public class histo_15_normal extends AppCompatActivity {
         soundPool = new SoundPool(10,AudioManager.STREAM_MUSIC, 0);
         empty_sound_id = soundPool.load(this, R.raw.waves_trim, 1);
 
-        bells_sound_id = soundPool.load(this, R.raw.bells_sound, 1);
+        bells_sound_id = soundPool.load(this, R.raw.bike_bell, 1);
         healing_sound_id = soundPool.load(this, R.raw.healing_sound, 1);
 
         // Write your constantly running code here
@@ -494,17 +503,17 @@ public class histo_15_normal extends AppCompatActivity {
                             bells_sound_is_playing = false;
 
                             // play sound inside figure
-                            if (!healing_sound_is_playing) {
-                                if (!spatial_audio_activated) {
-                                    // Start playing the sound at normal pitch, from both speakers
-                                    healing_sound_stream_id = soundPool.play(healing_sound_id, (float) 1.0, (float) 1.0, priority, healing_loop, (float) 1.0);
-                                }
-                                else {
-                                    // Start playing the sound at normal pitch, from both speakers
-                                    healing_sound_stream_id = soundPool.play(healing_sound_id, leftVolume, rightVolume, priority, healing_loop, pitch);
-                                }
-                                healing_sound_is_playing = true;
-                            }
+//                            if (!healing_sound_is_playing) {
+//                                if (!spatial_audio_activated) {
+//                                    // Start playing the sound at normal pitch, from both speakers
+//                                    healing_sound_stream_id = soundPool.play(healing_sound_id, (float) 1.0, (float) 1.0, priority, healing_loop, (float) 1.0);
+//                                }
+//                                else {
+//                                    // Start playing the sound at normal pitch, from both speakers
+//                                    healing_sound_stream_id = soundPool.play(healing_sound_id, leftVolume, rightVolume, priority, healing_loop, pitch);
+//                                }
+//                                healing_sound_is_playing = true;
+//                            }
 
                             // Start vibrating
                             if (vib_freq != vib_freq_inside) {

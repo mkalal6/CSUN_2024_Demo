@@ -79,15 +79,16 @@ public class scatter_100_spatial extends AppCompatActivity {
     private SoundPool soundPool;
     private int empty_sound_id;
     private int empty_sound_stream_id;
-    private int healing_sound_id;
-    private int healing_sound_stream_id;
+    private int inside_sound_id;
+    private int inside_sound_stream_id;
     int priority;
     int loop = -1; // Loop forever
-    int healing_loop = 2; // loop twice
+    int inside_loop = 0; // loop twice
     private Boolean empty_sound_is_playing = false;
-    private Boolean healing_sound_is_playing = false;
+    private Boolean inside_sound_is_playing = false;
     private Boolean spatial_audio_activated = true;
     float pitch_threshold = (float) 0.01;
+    private Boolean tts_spoke = false;
 
 
     // For Logging Info
@@ -308,6 +309,14 @@ public class scatter_100_spatial extends AppCompatActivity {
             @Override
             public boolean onDoubleTap(int fingers) {
                 // Write your code here for DOUBLE TAPPING
+                if (!tts_spoke) {
+                    tts.speak("This is a scatter plot with 100 points. No numerical values are provided. Try to identify the shape of the graph by freely exploring it with one of your fingers", TextToSpeech.QUEUE_FLUSH, null);
+                    tts_spoke = true;
+                }
+                else {
+                    tts.stop();
+                    tts_spoke = false;
+                }
                 return false;
             }
 
@@ -347,7 +356,7 @@ public class scatter_100_spatial extends AppCompatActivity {
         soundPool = new SoundPool(10,AudioManager.STREAM_MUSIC, 0);
         empty_sound_id = soundPool.load(this, R.raw.waves_trim, 1);
 
-        healing_sound_id = soundPool.load(this, R.raw.healing_sound, 1);
+        inside_sound_id = soundPool.load(this, R.raw.bike_bell, 1);
 
         // Write your constantly running code here
         handler.post(new Runnable() {
@@ -398,9 +407,9 @@ public class scatter_100_spatial extends AppCompatActivity {
                     soundPool.stop(empty_sound_stream_id);
                     empty_sound_is_playing = false;
 
-                    // stop healing sounds
-                    soundPool.stop(healing_sound_stream_id);
-                    healing_sound_is_playing = false;
+                    // stop inside sounds
+                    soundPool.stop(inside_sound_id);
+                    inside_sound_is_playing = false;
                 }
 
                 /**************************************************************************************
@@ -478,16 +487,16 @@ public class scatter_100_spatial extends AppCompatActivity {
                             empty_sound_is_playing = false;
 
                             // play sound inside figure
-                            if (!healing_sound_is_playing) {
+                            if (!inside_sound_is_playing) {
                                 if (!spatial_audio_activated) {
                                     // Start playing the sound at normal pitch, from both speakers
-                                    healing_sound_stream_id = soundPool.play(healing_sound_id, (float) 1.0, (float) 1.0, priority, healing_loop, (float) 1.0);
+                                    inside_sound_stream_id = soundPool.play(inside_sound_id, (float) 1.0, (float) 1.0, priority, inside_loop, (float) 1.0);
                                 }
                                 else {
-                                    // Start playing the sound at normal pitch, from both speakers
-                                    healing_sound_stream_id = soundPool.play(healing_sound_id, leftVolume, rightVolume, priority, healing_loop, pitch);
+                                    // Start playing the sound with change in direction and pitch
+                                    inside_sound_stream_id = soundPool.play(inside_sound_id, leftVolume, rightVolume, priority, inside_loop, pitch);
                                 }
-                                healing_sound_is_playing = true;
+                                inside_sound_is_playing = true;
                             }
 
                             // Start vibrating
@@ -499,8 +508,8 @@ public class scatter_100_spatial extends AppCompatActivity {
                                 // This only happens ONCE when the vibration frequency CHANGES value, to avoid the motor having to STOPGOSTOPGOSTOPGOSTOPGO
                             }
                             if (!vib.isVibrating()) {
-                                //vib.vibrateAtFrequencyForever(vib_freq);
-                                vib.vibrateForever();
+                                vib.vibrateAtFrequencyForever(vib_freq);
+//                                vib.vibrateForever();
                             }
 
                             coord_view.setText("");
@@ -530,9 +539,9 @@ public class scatter_100_spatial extends AppCompatActivity {
                             }
                             */
                             coord_view.setText("");
-                            // stop healing sounds
-                            soundPool.stop(healing_sound_stream_id);
-                            healing_sound_is_playing = false;
+                            // stop inside sounds
+                            soundPool.stop(inside_sound_stream_id);
+                            inside_sound_is_playing = false;
                         }
                     }
                 }
@@ -728,8 +737,8 @@ public class scatter_100_spatial extends AppCompatActivity {
                                 // This only happens ONCE when the vibration frequency CHANGES value, to avoid the motor having to STOPGOSTOPGOSTOPGOSTOPGO
                             }
                             if (!vib.isVibrating()) {
-                                //vib.vibrateAtFrequencyForever(vib_freq);
-                                vib.vibrateForever();
+                                vib.vibrateAtFrequencyForever(vib_freq);
+//                                vib.vibrateForever();
                             }
 
                             // Stop other sounds
@@ -748,8 +757,8 @@ public class scatter_100_spatial extends AppCompatActivity {
                                 // This only happens ONCE when the vibration frequency CHANGES value, to avoid the motor having to STOPGOSTOPGOSTOPGOSTOPGO
                             }
                             if (!vib.isVibrating()) {
-                                //vib.vibrateAtFrequencyForever(vib_freq);
-                                vib.vibrateForever();
+                                vib.vibrateAtFrequencyForever(vib_freq);
+//                                vib.vibrateForever();
                             }
                         }
 
@@ -763,7 +772,8 @@ public class scatter_100_spatial extends AppCompatActivity {
                                 ((pixel1_red != inside_red && pixel1_green != inside_green && pixel1_blue != inside_blue)))) {
 
                             // Stop other sounds
-                            // ...
+                            soundPool.stop(inside_sound_stream_id);
+                            inside_sound_is_playing = false;
 
                             // Play EMPTY sound
                             // SoundPool output with or without Spatial Audio

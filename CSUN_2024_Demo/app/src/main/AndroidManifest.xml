@@ -78,10 +78,6 @@
             android:name=".GraphSelector"
             android:exported="true" />
         <activity
-            android:name=".shapes"
-            android:noHistory="true"
-            android:exported="true" />
-        <activity
             android:name=".screen_1"
             android:noHistory="true"
             android:exported="false" />
