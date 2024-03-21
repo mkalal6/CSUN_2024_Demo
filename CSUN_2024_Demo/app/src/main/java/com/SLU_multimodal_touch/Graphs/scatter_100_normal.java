@@ -57,15 +57,19 @@ public class scatter_100_normal extends AppCompatActivity {
     int screen_height = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     // Define area colors
-    int inside_red = 237;
-    int inside_green = 125;
-    int inside_blue = 49;
+    int inside_red = 255;
+    int inside_green = 192;
+    int inside_blue = 0;
+    int margin_red = 255;
+    int margin_green = 255;
+    int margin_blue = 250;
 
 
     // For Vibration Control
     VibrationManager vib = new VibrationManager();
     int vib_freq = 0;
     final int vib_freq_inside = 5; // Hz
+    final int vib_freq_margin = 25; // Hz
 
 
     // To track WHICH finger is on screen
@@ -123,10 +127,10 @@ public class scatter_100_normal extends AppCompatActivity {
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             // In landscape
-            mv.setImageResource(R.drawable.scatter_100_normal);
+            mv.setImageResource(R.drawable.scatter_plot_1_shaded_v2);
         } else {
             // In portrait
-            mv.setImageResource(R.drawable.scatter_100_normal);
+            mv.setImageResource(R.drawable.scatter_plot_1_shaded_v2);
         }
 
         /**************************************************************************************
@@ -513,6 +517,45 @@ public class scatter_100_normal extends AppCompatActivity {
                             }
 
                             coord_view.setText("");
+                        }
+                        // If finger is in the MARGIN area
+                        else if (pixel_red == margin_red && pixel_green == margin_green && pixel_blue == margin_blue) {
+                            // Start vibrating
+                            if (vib_freq != vib_freq_margin) {
+                                // Stop the previous vibration if it is different from the one we are supposed to do
+                                vib.stop();
+                                // Update the vibration frequency
+                                vib_freq = vib_freq_margin;
+                                // This only happens ONCE when the vibration frequency CHANGES value, to avoid the motor having to STOPGOSTOPGOSTOPGOSTOPGO
+                            }
+                            if (!vib.isVibrating()) {
+                                vib.vibrateAtFrequencyForever(vib_freq);
+//                                vib.vibrateForever();
+                            }
+
+                            // SoundPool output with or without Spatial Audio
+                            if (!empty_sound_is_playing) {
+                                if (!spatial_audio_activated) {
+                                    // Start playing the sound at normal pitch, from both speakers
+                                    empty_sound_stream_id = soundPool.play(empty_sound_id, (float) 1.0, (float) 1.0, priority, loop, (float) 1.0);
+                                }
+                                else {
+                                    // Start playing the sound with spatial audio
+                                    empty_sound_stream_id = soundPool.play(empty_sound_id, leftVolume, rightVolume, priority, loop, pitch);
+                                }
+                                empty_sound_is_playing = true;
+                            }
+                            // SPATIAL AUDIO constant modification
+                            if (spatial_audio_activated) {
+                                soundPool.setLoop(empty_sound_stream_id, loop);
+                                soundPool.setVolume(empty_sound_stream_id, leftVolume, rightVolume);
+                                soundPool.setRate(empty_sound_stream_id, pitch);
+                            }
+                            // stop inside sounds
+                            soundPool.stop(inside_sound_stream_id);
+                            inside_sound_is_playing = false;
+
+//                            coord_view.setText("");
                         }
                         // If finger is on EMPTY space
                         else {

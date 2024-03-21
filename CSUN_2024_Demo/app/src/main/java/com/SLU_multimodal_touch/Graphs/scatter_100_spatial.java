@@ -57,15 +57,19 @@ public class scatter_100_spatial extends AppCompatActivity {
     int screen_height = Resources.getSystem().getDisplayMetrics().heightPixels;
 
     // Define area colors
-    int inside_red = 237;
-    int inside_green = 125;
-    int inside_blue = 49;
+    int inside_red = 255;
+    int inside_green = 192;
+    int inside_blue = 0;
+    int margin_red = 255;
+    int margin_green = 255;
+    int margin_blue = 250;
 
 
     // For Vibration Control
     VibrationManager vib = new VibrationManager();
     int vib_freq = 0;
     final int vib_freq_inside = 5; // Hz
+    final int vib_freq_margin = 25; // Hz
 
 
     // To track WHICH finger is on screen
@@ -123,10 +127,10 @@ public class scatter_100_spatial extends AppCompatActivity {
         int orientation = getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             // In landscape
-            mv.setImageResource(R.drawable.scatter_100_spatial);
+            mv.setImageResource(R.drawable.scatter_plot_shaded_v2);
         } else {
             // In portrait
-            mv.setImageResource(R.drawable.scatter_100_spatial);
+            mv.setImageResource(R.drawable.scatter_plot_shaded_v2);
         }
 
         /**************************************************************************************
@@ -465,7 +469,7 @@ public class scatter_100_spatial extends AppCompatActivity {
                         int pixel_red = Color.red(pixel);
                         int pixel_green = Color.green(pixel);
                         int pixel_blue = Color.blue(pixel);
-                        //coord_view.setText("COLOR = " + pixel_red + ", " + pixel_green + "," + pixel_blue);
+                        coord_view.setText("COLOR = " + pixel_red + ", " + pixel_green + "," + pixel_blue);
 
                         // For AUDIO CHANNEL proportional control based on X axis coordinate
                         float audio_x = (float) (imageX / imageWidth);
@@ -512,7 +516,24 @@ public class scatter_100_spatial extends AppCompatActivity {
 //                                vib.vibrateForever();
                             }
 
-                            coord_view.setText("");
+//                            coord_view.setText("");
+                        }
+                        // If finger is in the MARGIN area
+                        else if (pixel_red == margin_red && pixel_green == margin_green && pixel_blue == margin_blue) {
+                            // Start vibrating
+                            if (vib_freq != vib_freq_margin) {
+                                // Stop the previous vibration if it is different from the one we are supposed to do
+                                vib.stop();
+                                // Update the vibration frequency
+                                vib_freq = vib_freq_margin;
+                                // This only happens ONCE when the vibration frequency CHANGES value, to avoid the motor having to STOPGOSTOPGOSTOPGOSTOPGO
+                            }
+                            if (!vib.isVibrating()) {
+                                vib.vibrateAtFrequencyForever(vib_freq);
+//                                vib.vibrateForever();
+                            }
+
+//                            coord_view.setText("");
                         }
                         // If finger is on EMPTY space
                         else {
@@ -538,7 +559,7 @@ public class scatter_100_spatial extends AppCompatActivity {
                                 soundPool.setRate(empty_sound_stream_id, pitch);
                             }
                             */
-                            coord_view.setText("");
+//                            coord_view.setText("");
                             // stop inside sounds
                             soundPool.stop(inside_sound_stream_id);
                             inside_sound_is_playing = false;
