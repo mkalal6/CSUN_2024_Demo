@@ -80,8 +80,8 @@ public class allergy_graph extends AppCompatActivity {
     // For Vibration Control
     VibrationManager vib = new VibrationManager();
     int vib_freq = 0;
-    final int vib_freq_category_one = 25; // Hz
-    final int vib_freq_category_two = 50; // Hz
+    final int vib_freq_category_one = 10; // Hz
+    final int vib_freq_category_two = 25; // Hz
 
     // Define variables to track tts control
     boolean hasSpoken = false;
@@ -542,7 +542,7 @@ public class allergy_graph extends AppCompatActivity {
                         float X_screenPercent = (float) (imageX/imageWidth);
                         float Y_screenPercent = (float) (imageY/imageHeight);
 
-                        coord_view.setText("Their X percentages are " + X_screenPercent + "\nTheir Y percentages are " + Y_screenPercent);
+//                        coord_view.setText("Their X percentages are " + X_screenPercent + "\nTheir Y percentages are " + Y_screenPercent);
 
                         // setting text to speech for allergy_graph
                         if (X_screenPercent > 0.28 && X_screenPercent < 0.70 && Y_screenPercent < 0.06 && Y_screenPercent > 0.02){
@@ -684,7 +684,7 @@ public class allergy_graph extends AppCompatActivity {
                             healing_sound_is_playing = false;
                              */
 
-                            coord_view.setText("TOP BAR ONE FOUND");
+//                            coord_view.setText("TOP BAR ONE FOUND");
 
                             // play sound on top bar
                             if (!bike_bell_is_playing) {

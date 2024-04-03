@@ -469,7 +469,7 @@ public class scatter_100_spatial extends AppCompatActivity {
                         int pixel_red = Color.red(pixel);
                         int pixel_green = Color.green(pixel);
                         int pixel_blue = Color.blue(pixel);
-                        coord_view.setText("COLOR = " + pixel_red + ", " + pixel_green + "," + pixel_blue);
+//                        coord_view.setText("COLOR = " + pixel_red + ", " + pixel_green + "," + pixel_blue);
 
                         // For AUDIO CHANNEL proportional control based on X axis coordinate
                         float audio_x = (float) (imageX / imageWidth);
